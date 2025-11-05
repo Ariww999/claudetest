@@ -1,0 +1,756 @@
+/* ==================== */
+/* Global Styles */
+/* ==================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    position: relative;
+}
+
+/* ==================== */
+/* Screen Management */
+/* ==================== */
+
+.screen {
+    display: none;
+    opacity: 0;
+    animation: fadeOut 0.5s ease;
+}
+
+.screen.active {
+    display: block;
+    opacity: 1;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+/* ==================== */
+/* Selection Screen */
+/* ==================== */
+
+#selection-screen {
+    text-align: center;
+}
+
+.title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 10px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    animation: titlePulse 2s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 50px;
+    font-weight: 300;
+}
+
+.guys-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    padding: 20px;
+}
+
+/* ==================== */
+/* Guy Cards */
+/* ==================== */
+
+.guy-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 30px;
+    padding: 40px 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.guy-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+}
+
+.guy-card h3 {
+    font-size: 2rem;
+    color: #333;
+    margin: 20px 0 10px;
+    font-weight: 600;
+}
+
+.guy-desc {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* ==================== */
+/* Guy Avatars (CSS Illustrations) */
+/* ==================== */
+
+.guy-avatar {
+    position: relative;
+    width: 180px;
+    height: 240px;
+    margin: 0 auto;
+}
+
+.guy-avatar-large {
+    width: 250px;
+    height: 320px;
+}
+
+/* Face Styles */
+.face {
+    position: relative;
+    width: 120px;
+    height: 140px;
+    margin: 0 auto;
+    border-radius: 50% 50% 45% 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.cute-face {
+    background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+}
+
+.sporty-face {
+    background: linear-gradient(135deg, #d4a574 0%, #b8956a 100%);
+}
+
+.gamer-face {
+    background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+}
+
+/* Eyes */
+.eyes {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.eye {
+    width: 12px;
+    height: 12px;
+    background: #2d3436;
+    border-radius: 50%;
+    animation: blink 4s infinite;
+}
+
+@keyframes blink {
+    0%, 96%, 100% {
+        transform: scaleY(1);
+    }
+    98% {
+        transform: scaleY(0.1);
+    }
+}
+
+/* Smiles */
+.smile {
+    width: 40px;
+    height: 20px;
+    border: 3px solid #2d3436;
+    border-top: none;
+    border-radius: 0 0 40px 40px;
+}
+
+.confident-smile {
+    width: 50px;
+    height: 22px;
+}
+
+.shy-smile {
+    width: 30px;
+    height: 15px;
+}
+
+/* Glasses for Gamer */
+.glasses {
+    position: absolute;
+    top: 50px;
+    display: flex;
+    gap: 20px;
+    z-index: 1;
+}
+
+.lens {
+    width: 35px;
+    height: 30px;
+    border: 3px solid #2d3436;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Body Styles */
+.body {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 20px 20px 40px 40px;
+}
+
+.muscular-body {
+    background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+    width: 120px;
+    box-shadow: inset -5px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.sporty-body {
+    background: linear-gradient(135deg, #ff7675 0%, #d63031 100%);
+    width: 110px;
+}
+
+.gamer-body {
+    background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+    width: 95px;
+}
+
+/* ==================== */
+/* Buttons */
+/* ==================== */
+
+.choose-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    font-family: 'Poppins', sans-serif;
+}
+
+.choose-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+}
+
+.choose-btn:active {
+    transform: translateY(-1px);
+}
+
+/* ==================== */
+/* Date Screens */
+/* ==================== */
+
+.date-screen {
+    min-height: 80vh;
+}
+
+.scene {
+    position: relative;
+    background: white;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    min-height: 700px;
+}
+
+.scene-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 250px;
+    z-index: 0;
+}
+
+.cafe-bg {
+    background: linear-gradient(135deg, #fff5e1 0%, #ffe4b5 50%, #ffd9a0 100%);
+    position: relative;
+}
+
+.cafe-bg::before {
+    content: '☕';
+    position: absolute;
+    font-size: 100px;
+    opacity: 0.1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.beach-bg {
+    background: linear-gradient(135deg, #48c6ef 0%, #6f86d6 100%);
+    position: relative;
+}
+
+.beach-bg::before {
+    content: '🏐';
+    position: absolute;
+    font-size: 100px;
+    opacity: 0.2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.gaming-bg {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    position: relative;
+}
+
+.gaming-bg::before {
+    content: '🎮';
+    position: absolute;
+    font-size: 100px;
+    opacity: 0.2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.date-content {
+    position: relative;
+    z-index: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+/* ==================== */
+/* Portrait Frame */
+/* ==================== */
+
+.guy-portrait {
+    margin-top: 180px;
+}
+
+.portrait-frame {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    border: 5px solid #f0f0f0;
+}
+
+/* ==================== */
+/* Dialogue Box */
+/* ==================== */
+
+.dialogue-box {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 700px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #667eea;
+}
+
+.dialogue-text {
+    font-size: 1.2rem;
+    color: #2d3436;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.dialogue-text-sub {
+    font-size: 1rem;
+    color: #636e72;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+/* ==================== */
+/* Question Box */
+/* ==================== */
+
+.question-box {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.question {
+    font-size: 1.8rem;
+    color: #2d3436;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.answer-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.answer-btn {
+    padding: 15px 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.yes-btn {
+    background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+    color: white;
+    box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+}
+
+.yes-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(255, 107, 157, 0.6);
+}
+
+.no-btn {
+    background: linear-gradient(135deg, #b2bec3 0%, #636e72 100%);
+    color: white;
+    box-shadow: 0 10px 30px rgba(99, 110, 114, 0.4);
+}
+
+.no-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(99, 110, 114, 0.6);
+}
+
+/* ==================== */
+/* Ending Screens */
+/* ==================== */
+
+.ending-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+}
+
+.ending-content {
+    background: white;
+    border-radius: 30px;
+    padding: 60px;
+    max-width: 800px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.ending-illustration {
+    margin-bottom: 30px;
+}
+
+.ending-title {
+    font-size: 2.5rem;
+    color: #2d3436;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.ending-text {
+    font-size: 1.2rem;
+    color: #636e72;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.ending-text-sub {
+    font-size: 1rem;
+    color: #b2bec3;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* ==================== */
+/* Confession Box */
+/* ==================== */
+
+.confession-box {
+    background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+    padding: 30px;
+    border-radius: 20px;
+    margin: 30px 0;
+    box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+}
+
+.confession {
+    font-size: 2rem;
+    color: white;
+    font-weight: 600;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ==================== */
+/* Ending Illustrations */
+/* ==================== */
+
+.holding-hands {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-size: 80px;
+    margin: 30px 0;
+}
+
+.hand {
+    font-size: 60px;
+    animation: handHold 2s ease-in-out infinite;
+}
+
+.hand-left::before {
+    content: '🤝';
+}
+
+.heart-burst {
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes handHold {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-5px);
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.walking-together {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.silhouette {
+    width: 80px;
+    height: 150px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50% 50% 0 0;
+    position: relative;
+    animation: walk 2s ease-in-out infinite;
+}
+
+.silhouette1 {
+    animation-delay: 0s;
+}
+
+.silhouette2 {
+    animation-delay: 0.3s;
+}
+
+@keyframes walk {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.sunset-icon {
+    font-size: 100px;
+    animation: sunset 3s ease-in-out infinite;
+}
+
+@keyframes sunset {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.blushing-avatar {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.blush {
+    position: absolute;
+    width: 30px;
+    height: 25px;
+    background: #ff6b9d;
+    border-radius: 50%;
+    opacity: 0.6;
+    top: 80px;
+    animation: blushPulse 1.5s ease-in-out infinite;
+}
+
+.blush-left {
+    left: 10px;
+}
+
+.blush-right {
+    right: 10px;
+}
+
+@keyframes blushPulse {
+    0%, 100% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.friend-wave {
+    font-size: 120px;
+    animation: wave 1s ease-in-out infinite;
+    display: inline-block;
+    margin: 30px 0;
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(20deg);
+    }
+    75% {
+        transform: rotate(-20deg);
+    }
+}
+
+/* ==================== */
+/* Restart Button */
+/* ==================== */
+
+.restart-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    font-family: 'Poppins', sans-serif;
+    margin-top: 20px;
+}
+
+.restart-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+}
+
+/* ==================== */
+/* Responsive Design */
+/* ==================== */
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .guys-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .guy-card {
+        padding: 30px 20px;
+    }
+
+    .dialogue-text {
+        font-size: 1rem;
+    }
+
+    .ending-content {
+        padding: 40px 30px;
+    }
+
+    .ending-title {
+        font-size: 2rem;
+    }
+
+    .confession {
+        font-size: 1.5rem;
+    }
+
+    .answer-buttons {
+        flex-direction: column;
+    }
+
+    .answer-btn {
+        width: 100%;
+    }
+}

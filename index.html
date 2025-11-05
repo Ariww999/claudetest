@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Date 💕</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Selection Screen -->
+        <div id="selection-screen" class="screen active">
+            <h1 class="title">Choose Your Perfect Date 💝</h1>
+            <p class="subtitle">Three amazing guys are waiting to meet you...</p>
+
+            <div class="guys-container">
+                <!-- Guy 1: Cute face, muscular body -->
+                <div class="guy-card" data-guy="1">
+                    <div class="guy-avatar guy1-avatar">
+                        <div class="face cute-face">
+                            <div class="eyes">
+                                <div class="eye"></div>
+                                <div class="eye"></div>
+                            </div>
+                            <div class="smile"></div>
+                        </div>
+                        <div class="body muscular-body"></div>
+                    </div>
+                    <h3>Jiho</h3>
+                    <p class="guy-desc">Cute face with a surprisingly muscular physique. Gentle and caring.</p>
+                    <button class="choose-btn" onclick="chooseGuy(1)">Choose Jiho</button>
+                </div>
+
+                <!-- Guy 2: Tanned, sporty -->
+                <div class="guy-card" data-guy="2">
+                    <div class="guy-avatar guy2-avatar">
+                        <div class="face sporty-face">
+                            <div class="eyes">
+                                <div class="eye"></div>
+                                <div class="eye"></div>
+                            </div>
+                            <div class="smile confident-smile"></div>
+                        </div>
+                        <div class="body sporty-body"></div>
+                    </div>
+                    <h3>Minseok</h3>
+                    <p class="guy-desc">Athletic and tanned from outdoor activities. Energetic and adventurous.</p>
+                    <button class="choose-btn" onclick="chooseGuy(2)">Choose Minseok</button>
+                </div>
+
+                <!-- Guy 3: Gamer with glasses -->
+                <div class="guy-card" data-guy="3">
+                    <div class="guy-avatar guy3-avatar">
+                        <div class="face gamer-face">
+                            <div class="glasses">
+                                <div class="lens"></div>
+                                <div class="lens"></div>
+                            </div>
+                            <div class="eyes">
+                                <div class="eye"></div>
+                                <div class="eye"></div>
+                            </div>
+                            <div class="smile shy-smile"></div>
+                        </div>
+                        <div class="body gamer-body"></div>
+                    </div>
+                    <h3>Taehyun</h3>
+                    <p class="guy-desc">Intellectual gamer with stylish glasses. Sweet and a bit shy.</p>
+                    <button class="choose-btn" onclick="chooseGuy(3)">Choose Taehyun</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Date Screen: Guy 1 - Aesthetic Cafe -->
+        <div id="date-screen-1" class="screen date-screen">
+            <div class="scene cafe-scene">
+                <div class="scene-background cafe-bg"></div>
+                <div class="date-content">
+                    <div class="guy-portrait guy1-portrait">
+                        <div class="portrait-frame">
+                            <div class="guy-avatar guy1-avatar-large">
+                                <div class="face cute-face">
+                                    <div class="eyes">
+                                        <div class="eye"></div>
+                                        <div class="eye"></div>
+                                    </div>
+                                    <div class="smile"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dialogue-box">
+                        <p class="dialogue-text">
+                            "I'm so glad you chose to come here with me. This cafe has the best ambiance...
+                            but honestly, it's even better now that you're here."
+                        </p>
+                        <p class="dialogue-text-sub">
+                            *He speaks gently, his voice warm and sincere as he looks into your eyes*
+                        </p>
+                    </div>
+                    <div class="question-box">
+                        <p class="question">Do you like me?</p>
+                        <div class="answer-buttons">
+                            <button class="answer-btn yes-btn" onclick="answerGuy(1, true)">Yes 💗</button>
+                            <button class="answer-btn no-btn" onclick="answerGuy(1, false)">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Date Screen: Guy 2 - Beach Volleyball -->
+        <div id="date-screen-2" class="screen date-screen">
+            <div class="scene beach-scene">
+                <div class="scene-background beach-bg"></div>
+                <div class="date-content">
+                    <div class="guy-portrait guy2-portrait">
+                        <div class="portrait-frame">
+                            <div class="guy-avatar guy2-avatar-large">
+                                <div class="face sporty-face">
+                                    <div class="eyes">
+                                        <div class="eye"></div>
+                                        <div class="eye"></div>
+                                    </div>
+                                    <div class="smile confident-smile"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dialogue-box">
+                        <p class="dialogue-text">
+                            "That was amazing! You're really good at volleyball!
+                            I love spending time with someone who's as energetic as me."
+                        </p>
+                        <p class="dialogue-text-sub">
+                            *He grins widely, his tanned skin glowing in the sunset as he catches his breath*
+                        </p>
+                    </div>
+                    <div class="question-box">
+                        <p class="question">Do you like me?</p>
+                        <div class="answer-buttons">
+                            <button class="answer-btn yes-btn" onclick="answerGuy(2, true)">Yes 💗</button>
+                            <button class="answer-btn no-btn" onclick="answerGuy(2, false)">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Date Screen: Guy 3 - Internet Cafe -->
+        <div id="date-screen-3" class="screen date-screen">
+            <div class="scene gaming-scene">
+                <div class="scene-background gaming-bg"></div>
+                <div class="date-content">
+                    <div class="guy-portrait guy3-portrait">
+                        <div class="portrait-frame">
+                            <div class="guy-avatar guy3-avatar-large">
+                                <div class="face gamer-face">
+                                    <div class="glasses">
+                                        <div class="lens"></div>
+                                        <div class="lens"></div>
+                                    </div>
+                                    <div class="eyes">
+                                        <div class="eye"></div>
+                                        <div class="eye"></div>
+                                    </div>
+                                    <div class="smile shy-smile"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dialogue-box">
+                        <p class="dialogue-text">
+                            "Wow, we make a great team! I've never had this much fun gaming with someone before.
+                            You're... really special."
+                        </p>
+                        <p class="dialogue-text-sub">
+                            *He adjusts his glasses nervously, a soft smile playing on his lips*
+                        </p>
+                    </div>
+                    <div class="question-box">
+                        <p class="question">Do you like me?</p>
+                        <div class="answer-buttons">
+                            <button class="answer-btn yes-btn" onclick="answerGuy(3, true)">Yes 💗</button>
+                            <button class="answer-btn no-btn" onclick="answerGuy(3, false)">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ending Screen: Guy 1 - Yes -->
+        <div id="ending-screen-1-yes" class="screen ending-screen">
+            <div class="ending-content romantic-ending">
+                <div class="ending-illustration">
+                    <div class="holding-hands">
+                        <div class="hand hand-left"></div>
+                        <div class="heart-burst">💕</div>
+                        <div class="hand hand-right"></div>
+                    </div>
+                </div>
+                <h2 class="ending-title">A Perfect Moment</h2>
+                <p class="ending-text">
+                    Jiho's face lights up with pure joy. He gently takes your hand in his,
+                    his touch warm and reassuring. Looking deeply into your eyes, he whispers...
+                </p>
+                <div class="confession-box">
+                    <p class="confession">"I love you."</p>
+                </div>
+                <p class="ending-text-sub">
+                    *Your heart skips a beat as his muscular arms pull you into a gentle embrace*
+                </p>
+                <button class="restart-btn" onclick="restart()">Start Over 🔄</button>
+            </div>
+        </div>
+
+        <!-- Ending Screen: Guy 2 - Yes -->
+        <div id="ending-screen-2-yes" class="screen ending-screen">
+            <div class="ending-content sunset-ending">
+                <div class="ending-illustration">
+                    <div class="walking-together">
+                        <div class="silhouette silhouette1"></div>
+                        <div class="silhouette silhouette2"></div>
+                        <div class="sunset-icon">🌅</div>
+                    </div>
+                </div>
+                <h2 class="ending-title">Walking You Home</h2>
+                <p class="ending-text">
+                    Minseok's confident smile grows even wider. "Come on, let me take you home,"
+                    he says, his voice filled with warmth.
+                </p>
+                <p class="ending-text-sub">
+                    *He walks beside you as the sun sets, occasionally glancing at you with that
+                    charming smile. The sound of waves accompanies your journey home.*
+                </p>
+                <div class="confession-box">
+                    <p class="confession">"Today was perfect. See you tomorrow?"</p>
+                </div>
+                <button class="restart-btn" onclick="restart()">Start Over 🔄</button>
+            </div>
+        </div>
+
+        <!-- Ending Screen: Guy 3 - Yes -->
+        <div id="ending-screen-3-yes" class="screen ending-screen">
+            <div class="ending-content cute-ending">
+                <div class="ending-illustration">
+                    <div class="blushing-avatar">
+                        <div class="guy-avatar guy3-avatar-large">
+                            <div class="face gamer-face blushing">
+                                <div class="blush blush-left"></div>
+                                <div class="blush blush-right"></div>
+                                <div class="glasses">
+                                    <div class="lens"></div>
+                                    <div class="lens"></div>
+                                </div>
+                                <div class="eyes">
+                                    <div class="eye"></div>
+                                    <div class="eye"></div>
+                                </div>
+                                <div class="smile shy-smile"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="ending-title">An Adorable Reaction</h2>
+                <p class="ending-text">
+                    Taehyun's eyes widen behind his glasses. His cheeks turn a deep shade of red
+                    as he processes what you just said.
+                </p>
+                <div class="confession-box">
+                    <p class="confession">"R-really? You... you like me?"</p>
+                </div>
+                <p class="ending-text-sub">
+                    *He covers his blushing face with his hands, peeking at you between his fingers
+                    with the most endearing shy smile*
+                </p>
+                <button class="restart-btn" onclick="restart()">Start Over 🔄</button>
+            </div>
+        </div>
+
+        <!-- Ending Screen: Any Guy - No -->
+        <div id="ending-screen-no" class="screen ending-screen">
+            <div class="ending-content friend-ending">
+                <div class="ending-illustration">
+                    <div class="friend-wave">👋</div>
+                </div>
+                <h2 class="ending-title">Just Friends</h2>
+                <p class="ending-text">
+                    He gives you a understanding smile. "That's okay, I appreciate your honesty.
+                    I'm glad we could spend time together as friends."
+                </p>
+                <p class="ending-text-sub">
+                    *Sometimes friendship is just as valuable as romance*
+                </p>
+                <button class="restart-btn" onclick="restart()">Try Again 🔄</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
